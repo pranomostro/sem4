@@ -1,0 +1,21 @@
+DFA
+Alphabet: a;b
+States: epsilon;a;ab;aba;abaa;abaab;abaabb
+Init: epsilon
+Final: abaabb
+Transitions:
+epsilon;a;a
+epsilon;b;epsilon
+a;a;a
+a;b;ab
+ab;a;aba
+ab;b;epsilon
+aba;a;abaa
+aba;b;ab
+abaa;a;a
+abaa;b;abaab
+abaab;a;aba
+abaab;b;abaabb
+abaabb;a;abaabb
+abaabb;b;abaabb
+END

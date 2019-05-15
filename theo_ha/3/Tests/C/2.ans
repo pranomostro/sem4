@@ -1,0 +1,19 @@
+DFA
+Alphabet: a;i;m
+States: epsilon;m;mi;mia
+Init: epsilon
+Final: mia
+Transitions:
+epsilon;a;epsilon
+epsilon;i;epsilon
+epsilon;m;m
+m;a;epsilon
+m;i;mi
+m;m;m
+mi;a;mia
+mi;i;epsilon
+mi;m;m
+mia;a;mia
+mia;i;mia
+mia;m;mia
+END

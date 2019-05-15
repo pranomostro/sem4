@@ -1,0 +1,9 @@
+DFA
+Alphabet: a
+States: epsilon;a
+Init: epsilon
+Final: a
+Transitions:
+epsilon;a;a
+a;a;a
+END

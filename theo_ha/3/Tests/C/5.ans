@@ -1,0 +1,34 @@
+DFA
+Alphabet: a;i;m
+States: epsilon;m;ma;mam;mamm;mamma;mammam;mammami;mammamia
+Init: epsilon
+Final: mammamia
+Transitions:
+epsilon;a;epsilon
+epsilon;i;epsilon
+epsilon;m;m
+m;a;ma
+m;i;epsilon
+m;m;m
+ma;a;epsilon
+ma;i;epsilon
+ma;m;mam
+mam;a;ma
+mam;i;epsilon
+mam;m;mamm
+mamm;a;mamma
+mamm;i;epsilon
+mamm;m;m
+mamma;a;epsilon
+mamma;i;epsilon
+mamma;m;mammam
+mammam;a;ma
+mammam;i;mammami
+mammam;m;mamm
+mammami;a;mammamia
+mammami;i;epsilon
+mammami;m;m
+mammamia;a;mammamia
+mammamia;i;mammamia
+mammamia;m;mammamia
+END

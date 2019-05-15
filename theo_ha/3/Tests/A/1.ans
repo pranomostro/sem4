@@ -1,0 +1,14 @@
+yes
+yes
+no
+no
+yes
+no
+no
+yes
+yes
+no
+no
+no
+yes
+no

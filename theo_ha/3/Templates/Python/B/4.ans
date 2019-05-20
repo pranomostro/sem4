@@ -1,0 +1,10 @@
+EpsilonNFA
+Alphabet: a;b;c;d
+States: 0;1;2;3
+Init: 0
+Final: 3
+Transitions:
+0;a;1
+1;;2
+2;b;3
+END

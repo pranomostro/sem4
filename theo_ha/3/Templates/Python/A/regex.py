@@ -114,9 +114,12 @@ class Alternative(Regex):
 	def is_trivial(self):
 		return self.r1.is_trivial() and self.r2.is_trivial()
 
-	# TODO
 	def get_language(self):
-		pass
+		e1=self.r1.get_language()
+		e2=self.r2.get_language()
+		if e1==None or e2==None:
+			return None
+		return e1+e2
 
 
 class Concat(Regex):
@@ -139,9 +142,23 @@ class Concat(Regex):
 	def is_trivial(self):
 		return self.is_empty() or (self.r1.is_trivial() and self.r2.is_trivial())
 
-	# TODO
 	def get_language(self):
-		pass
+		e1=self.r1.get_language()
+		e2=self.r2.get_language()
+		if e1==None or e2==None:
+			return None
+		if self.r1.is_empty() or self.r2.is_empty():
+			return []
+		res=[]
+		for i in e1:
+			for j in e2:
+				if i=='ε':
+					res=res+[j]
+				elif j=='ε':
+					res=res+[i]
+				else:
+					res=res+[i+j]
+		return res
 
 
 class Star(Regex):
@@ -162,6 +179,8 @@ class Star(Regex):
 		return self.r.is_trivial()
 
 	def get_language(self):
+		if self.r.is_trivial():
+			return ['ε']
 		return None
 
 

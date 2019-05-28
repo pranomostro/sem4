@@ -1,0 +1,14 @@
+Normal
+CSG
+Start symbol: S
+Productions:
+S -> DTA
+S -> ab
+T -> DTa
+T -> Da
+Da -> abD
+Db -> bD
+DA -> Ab
+A -> a
+END
+12

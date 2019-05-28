@@ -1,0 +1,23 @@
+BEGIN NFA TO REGEX TRACE
+Step 0
+(2, 1): ∅
+(2, 2): ε
+(1, 1): ε
+(1, 2): a
+
+Step 1
+Processing state 1
+(2, 1): ∅
+(2, 2): ε
+(1, 1): ε
+(1, 2): a
+
+Step 2
+Processing state 2
+(2, 1): ∅
+(2, 2): ε
+(1, 1): ε
+(1, 2): a
+
+Final result: a
+END NFA TO REGEX TRACE

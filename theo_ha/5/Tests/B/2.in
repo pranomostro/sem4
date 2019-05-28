@@ -1,0 +1,18 @@
+Normal
+CSG
+Start symbol: S
+Productions:
+S -> 
+S -> T
+T -> aBC
+T -> aTBC
+CB -> CZ
+CZ -> WZ
+WZ -> WC
+WC -> BC
+aB -> ab
+bB -> bb
+bC -> bc
+cC -> cc
+END
+15

@@ -1,0 +1,17 @@
+ethstats
+ethstats.jar
+
+*.a
+*.class
+*.o
+*.pdf
+*~
+.*.sw?
+.DS_Store
+.classpath
+.idea
+.metadata
+.settings
+.project
+deps/*.so
+classes

@@ -1,0 +1,23 @@
+BEGIN NFA TO REGEX TRACE
+Step 0
+(2, 1): a
+(2, 2): ε
+(1, 1): ε
+(1, 2): a
+
+Step 1
+Processing state 1
+(2, 1): a
+(2, 2): aa|ε
+(1, 1): ε
+(1, 2): a
+
+Step 2
+Processing state 2
+(2, 1): a|(aa|ε)(aa|ε)*a
+(2, 2): aa|(aa|ε)(aa|ε)*(aa|ε)|ε
+(1, 1): a(aa|ε)*a|ε
+(1, 2): a|a(aa|ε)*(aa|ε)
+
+Final result: a(aa|ε)*a|ε
+END NFA TO REGEX TRACE

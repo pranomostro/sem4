@@ -1,0 +1,12 @@
+Raw
+CSG
+Start symbol: S
+Productions:
+S -> 
+S -> T
+T -> aa
+T -> bb
+T -> aTa
+T -> bTb
+END
+6

@@ -1,0 +1,12 @@
+Raw
+CSG
+Start symbol: A
+Productions:
+A -> 
+A -> X
+X -> XX
+X -> aab
+X -> aba
+X -> baa
+END
+6

@@ -36,8 +36,8 @@ void assignment2(int fd, int frames)
 
 	memcpy(&mymac, grnvs_get_hwaddr(fd), ETH_ALEN);
 
-	fputs(stderr, "my mac: ");
-	hexdump(mymac);
+	fputs("my mac: ", stderr);
+	hexdump(mymac, ETH_ALEN);
 
 	/* This is the ready marker! do not remove! */
 	fprintf(stdout, "I am ready!\n");

@@ -25,7 +25,7 @@ typedef struct Frametype {
 void assignment2(int fd, int frames)
 {
 	uint16_t ethtype;
-	unsigned int timeout = 10000, i, forme, multicast;
+	unsigned int timeout = 10000, i, forme=0, multicast=0;
 	uint8_t recbuffer[1514];
 	size_t ret, ftsize=0;
 	Frametype fts[255]; /* TODO: Make this variable length if it needs to */
@@ -80,7 +80,7 @@ void assignment2(int fd, int frames)
 
 	/* Print your summary here */
 	for(i=0; i<ftsize; i++)
-		printf("%04xd: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
+		printf("%04x: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
 	printf("%d of them were for me\n", forme);
 	printf("%d of them were multicast\n", multicast);
 }

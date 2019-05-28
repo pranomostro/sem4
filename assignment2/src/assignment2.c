@@ -89,7 +89,7 @@ void assignment2(int fd, int frames)
 
 	/* Print your summary here */
 	for(i=0; i<ftsize; i++)
-		printf("0x%.04x frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
+		printf("0x%.04x: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
 	printf("%d of them were for me\n", forme);
 	printf("%d of them were multicast\n", multicast);
 }

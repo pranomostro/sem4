@@ -61,7 +61,7 @@ void assignment2(int fd, int frames)
 
 		for(i=0; i<ftsize; i++)
 		{
-			ethtype=recbuffer[11]<<8|recbuffer[12];
+			ethtype=recbuffer[12]<<8|recbuffer[13];
 			if(ethtype==fts[i].frametype)
 				break;
 		}
@@ -81,15 +81,15 @@ void assignment2(int fd, int frames)
 			fts[i].bytes+=ret-4; /* again, don't count checksum */
 		}
 
-		if(!memcmp(multimac, recbuffer+8, ETH_ALEN))
+		if(!memcmp(multimac, recbuffer, ETH_ALEN))
 			multicast++;
-		else if(!memcmp(mymac, recbuffer+8, ETH_ALEN))
+		else if(!memcmp(mymac, recbuffer, ETH_ALEN))
 			forme++;
 	}
 
 	/* Print your summary here */
 	for(i=0; i<ftsize; i++)
-		printf("%04x: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
+		printf("%#04x: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
 	printf("%d of them were for me\n", forme);
 	printf("%d of them were multicast\n", multicast);
 }

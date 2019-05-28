@@ -36,6 +36,9 @@ void assignment2(int fd, int frames)
 
 	memcpy(&mymac, grnvs_get_hwaddr(fd), ETH_ALEN);
 
+	fputs(stderr, "my mac: ");
+	hexdump(mymac);
+
 	/* This is the ready marker! do not remove! */
 	fprintf(stdout, "I am ready!\n");
 
@@ -54,11 +57,11 @@ void assignment2(int fd, int frames)
 		 * should be done here.
 		 */
 
-		hexdump(recbuffer, 24);
+		hexdump(recbuffer, ret);
 
 		for(i=0; i<ftsize; i++)
 		{
-			ethtype=recbuffer[20]<<8|recbuffer[21];
+			ethtype=recbuffer[13]<<8|recbuffer[14];
 			if(ethtype==fts[i].frametype)
 				break;
 		}

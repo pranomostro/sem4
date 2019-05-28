@@ -50,6 +50,8 @@ void assignment2(int fd, int frames)
 	 * should be done here.
 	 */
 
+	printf("%d\n", ret);
+
 /*===========================================================================*/
 	}
 

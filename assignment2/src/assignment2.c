@@ -61,7 +61,7 @@ void assignment2(int fd, int frames)
 
 		for(i=0; i<ftsize; i++)
 		{
-			ethtype=recbuffer[11]<<8|recbuffer[12];
+			ethtype=recbuffer[12]<<8|recbuffer[13];
 			if(ethtype==fts[i].frametype)
 				break;
 		}

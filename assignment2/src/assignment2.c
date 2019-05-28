@@ -66,6 +66,8 @@ void assignment2(int fd, int frames)
 				break;
 		}
 
+		hexdump(&ethtype, 2);
+
 		if(i==ftsize)
 		{
 			ftsize++;

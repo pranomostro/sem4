@@ -11,6 +11,12 @@
 /* Put your required struct definitions */
 
 uint8_t mymac[ETH_ALEN];
+uint8_t multimac[ETH_ALEN]={0xff};
+
+typedef struct Frametype {
+	uint16_t frametype;
+	int frames, bytes;
+} Frametype;
 
 /* Put your ancillary functions here*/
 
@@ -18,47 +24,65 @@ uint8_t mymac[ETH_ALEN];
 
 void assignment2(int fd, int frames)
 {
-	unsigned int timeout = 10000;
+	uint16_t ethtype;
+	unsigned int timeout = 10000, i, forme, multicast;
 	uint8_t recbuffer[1514];
-	size_t ret;
+	size_t ret, ftsize=0;
+	Frametype fts[255]; /* TODO: Make this variable length if it needs to */
 
-/*====================================TODO===================================*/
 	/* If you want to set up any data/counters before the receive loop,
 	 * this is the right location
 	 */
 
 	memcpy(&mymac, grnvs_get_hwaddr(fd), ETH_ALEN);
 
-/*===========================================================================*/
-
 	/* This is the ready marker! do not remove! */
 	fprintf(stdout, "I am ready!\n");
 
-/*====================================TODO===================================*/
 	/* Update the loop condition */
-	while(1) {
-/*===========================================================================*/
+	while(frames-->0) {
 		ret = grnvs_read(fd, recbuffer, sizeof(recbuffer), &timeout);
 		if (ret == 0) {
 			fprintf(stderr, "Timed out, this means there was nothing to receive. Do you have a sender set up?\n");
 			break;
 		}
-/*====================================TODO===================================*/
 	/* This is the receive loop, 'recbuffer' will contain the received
 	 * frame. 'ret' tells you the length of what you received.
 	 * Anything that should be done with every frame that's received
 	 * should be done here.
 	 */
 
-	printf("%d\n", ret);
+		for(i=0; i<ftsize; i++)
+		{
+			ethtype=recbuffer[20]<<8|recbuffer[21];
+			if(ethtype==fts[i].frametype)
+				break;
+		}
 
-/*===========================================================================*/
+		if(i==ftsize)
+		{
+			ftsize++;
+			fts[i].frametype=ethtype;
+			fts[i].frames=1;
+			fts[i].bytes=ret;
+		}
+		else
+		{
+			fts[i].frames++;
+			fts[i].bytes+=ret;
+		}
+
+		if(!memcmp(multimac, recbuffer+8, ETH_ALEN))
+			multicast++;
+		else if(!memcmp(mymac, recbuffer+8, ETH_ALEN))
+			forme++;
 	}
 
-/*====================================TODO===================================*/
 	/* Print your summary here */
-
-/*===========================================================================*/
+	for(i=0; i<ftsize; i++)
+		printf("%04xd: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
+	printf("%d of them were for me\n", forme);
+	printf("%d of them were multicast\n", multicast);
 }
 
 int main(int argc, char ** argv)

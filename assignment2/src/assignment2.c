@@ -40,17 +40,21 @@ void assignment2(int fd, int frames)
 	fprintf(stdout, "I am ready!\n");
 
 	/* Update the loop condition */
+
 	while(frames-->0) {
 		ret = grnvs_read(fd, recbuffer, sizeof(recbuffer), &timeout);
 		if (ret == 0) {
 			fprintf(stderr, "Timed out, this means there was nothing to receive. Do you have a sender set up?\n");
 			break;
 		}
-	/* This is the receive loop, 'recbuffer' will contain the received
-	 * frame. 'ret' tells you the length of what you received.
-	 * Anything that should be done with every frame that's received
-	 * should be done here.
-	 */
+
+		/* This is the receive loop, 'recbuffer' will contain the received
+		 * frame. 'ret' tells you the length of what you received.
+		 * Anything that should be done with every frame that's received
+		 * should be done here.
+		 */
+
+		hexdump(recbuffer, 24);
 
 		for(i=0; i<ftsize; i++)
 		{
@@ -64,12 +68,12 @@ void assignment2(int fd, int frames)
 			ftsize++;
 			fts[i].frametype=ethtype;
 			fts[i].frames=1;
-			fts[i].bytes=ret;
+			fts[i].bytes=ret-4; /* subtract 4 octets for checksum */
 		}
 		else
 		{
 			fts[i].frames++;
-			fts[i].bytes+=ret;
+			fts[i].bytes+=ret-4; /* again, don't count checksum */
 		}
 
 		if(!memcmp(multimac, recbuffer+8, ETH_ALEN))

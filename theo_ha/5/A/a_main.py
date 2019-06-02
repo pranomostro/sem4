@@ -43,8 +43,9 @@ class NFA_To_Regex:
 		return newtable
 
 	def compute_result(self, table):
-		fst=self.nfa.states[0]
-		return alternatives([table[(fst, i)] for i in self.nfa.states])
+		start=self.nfa.start_state
+		ends=self.nfa.final_states
+		return alternatives([table[(start, i)] for i in ends])
 
 	def run_computation(self):
 		if self.full_mode:

@@ -2,7 +2,6 @@ from queue import Queue
 import sys
 import io
 
-
 class Production:
 
 	def __init__(self, lhs, rhs):
@@ -42,10 +41,9 @@ class Production:
 			rhs = ""
 		return Production(lhs, rhs)
 
-	def apply(self, w):
-		# Failure mode: w: S, lhs: T, rhs: S
-		print("apply call")
-		print("w: ", w, ", lhs: ", self.lhs, ", rhs: ", self.rhs)
+	def apply(self, w, max_len):
+		if len(w)+len(self.rhs)-len(self.lhs)>max_len:
+			return [w]
 		if self.lhs=='':
 			sw_lhs=['']+list(w)+['']
 		else:
@@ -110,21 +108,19 @@ class Context_Sensitive_Grammar:
 		return Context_Sensitive_Grammar(start_symbol, productions)
 
 	def enumerate_words_raw(self, max_len):
-		new_prods=[]
 		prods=[self.start_symbol]
+		last_prods=prods
 		while True:
+			new_prods=[]
 			for p in self.productions:
-				for w in prods:
-					new_prods=new_prods+p.apply(w)
-			print("new_prods 1: ", new_prods)
-			new_prods=list(set(new_prods))
-			print("new_prods 2: ", new_prods)
+				for w in last_prods:
+					new_prods=new_prods+p.apply(w, max_len)
+			new_prods=list(set(new_prods).difference(set(last_prods)))
 			new_prods=sorted([w for w in new_prods if len(w)<=max_len])
-			print("new_prods 3: ", new_prods)
-			if new_prods==prods:
+			if new_prods==[]:
 				break
-			prods=new_prods
-		print("prods final: ", prods)
+			last_prods=new_prods
+			prods=list(set(prods+new_prods))
 		return prods
 
 	def enumerate_words(self, max_len):

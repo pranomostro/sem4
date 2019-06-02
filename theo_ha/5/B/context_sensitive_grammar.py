@@ -44,6 +44,8 @@ class Production:
 
 	def apply(self, w):
 		# Failure mode: w: S, lhs: T, rhs: S
+		print("apply call")
+		print("w: ", w, ", lhs: ", self.lhs, ", rhs: ", self.rhs)
 		if self.lhs=='':
 			sw_lhs=['']+list(w)+['']
 		else:
@@ -114,11 +116,15 @@ class Context_Sensitive_Grammar:
 			for p in self.productions:
 				for w in prods:
 					new_prods=new_prods+p.apply(w)
+			print("new_prods 1: ", new_prods)
 			new_prods=list(set(new_prods))
+			print("new_prods 2: ", new_prods)
 			new_prods=sorted([w for w in new_prods if len(w)<=max_len])
+			print("new_prods 3: ", new_prods)
 			if new_prods==prods:
 				break
 			prods=new_prods
+		print("prods final: ", prods)
 		return prods
 
 	def enumerate_words(self, max_len):

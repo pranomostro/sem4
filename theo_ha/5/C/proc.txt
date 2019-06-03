@@ -1,0 +1,8 @@
+(@n stands for any start of a regular expression):
+{}/a={}
+()/a={}
+@0a/a=@0
+@0b/a=@0b
+a*/a=a*
+b*/a=b*
+ba*/a=ba*

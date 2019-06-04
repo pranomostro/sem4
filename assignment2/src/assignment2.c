@@ -38,6 +38,7 @@ void assignment2(int fd, int frames)
 {
 	uint16_t ethtype;
 	unsigned int timeout = 10000, i, forme=0, multicast=0;
+	float total=0, ipv4=0, ipv6=0;
 	uint8_t recbuffer[1514];
 	size_t ret, ftsize=0;
 	Frametype fts[255]; /* TODO: Make this variable length if it needs to */
@@ -47,9 +48,6 @@ void assignment2(int fd, int frames)
 	 */
 
 	memcpy(&mymac, grnvs_get_hwaddr(fd), ETH_ALEN);
-
-	fputs("my mac: ", stderr);
-	hexdump(mymac, ETH_ALEN);
 
 	/* This is the ready marker! do not remove! */
 	fprintf(stdout, "I am ready!\n");
@@ -73,18 +71,11 @@ void assignment2(int fd, int frames)
 		ethtype=recbuffer[12]<<8|recbuffer[13];
 
 		for(i=0; i<ftsize; i++)
-		{
-			fprintf(stderr, "checking ethertype\n");
 			if(ethtype==fts[i].frametype)
 				break;
-		}
-
-		hexdump(&ethtype, 2);
-		fprintf(stderr, "i: %d\n", i);
 
 		if(i==ftsize||ftsize==0)
 		{
-			fprintf(stderr, "setting last element %d\n", i);
 			ftsize++;
 			fts[i].frametype=ethtype;
 			fts[i].frames=1;
@@ -92,7 +83,6 @@ void assignment2(int fd, int frames)
 		}
 		else
 		{
-			fprintf(stderr, "setting element %d\n", i);
 			fts[i].frames++;
 			fts[i].bytes+=ret-4; /* again, don't count checksum */
 		}
@@ -101,6 +91,12 @@ void assignment2(int fd, int frames)
 			multicast++;
 		else if(!memcmp(mymac, recbuffer, ETH_ALEN))
 			forme++;
+
+		if(ethtype==0x0800)
+			ipv4++;
+		else if(ethtype==0x86DD)
+			ipv6++;
+		total++;
 	}
 
 	qsort(fts, ftsize, sizeof(Frametype), ftcmp);
@@ -110,6 +106,7 @@ void assignment2(int fd, int frames)
 		printf("0x%.04x: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
 	printf("%d of them were for me\n", forme);
 	printf("%d of them were multicast\n", multicast);
+	printf("IPv4 accounted for %.1f and IPv6 for %.1f of the traffic\n", ipv4/total, ipv6/total);
 }
 
 int main(int argc, char ** argv)

@@ -93,10 +93,10 @@ void assignment2(int fd, int frames)
 			forme++;
 
 		if(ethtype==0x0800)
-			ipv4++;
+			ipv4+=ret;
 		else if(ethtype==0x86DD)
-			ipv6++;
-		total++;
+			ipv6+=ret;
+		total+=ret;
 	}
 
 	qsort(fts, ftsize, sizeof(Frametype), ftcmp);

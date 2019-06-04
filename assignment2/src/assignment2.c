@@ -66,8 +66,6 @@ void assignment2(int fd, int frames)
 		 * should be done here.
 		 */
 
-		hexdump(recbuffer, ret);
-		hexdump(mymac, ETH_ALEN);
 		ethtype=recbuffer[12]<<8|recbuffer[13];
 
 		for(i=0; i<ftsize; i++)

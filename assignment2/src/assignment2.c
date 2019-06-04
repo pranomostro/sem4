@@ -12,7 +12,6 @@
 /* Put your required struct definitions */
 
 uint8_t mymac[ETH_ALEN];
-uint8_t multimac[ETH_ALEN]={0xff};
 
 typedef struct Frametype {
 	uint16_t frametype;
@@ -88,7 +87,7 @@ void assignment2(int fd, int frames)
 			fts[i].bytes+=ret;
 		}
 
-		if(!memcmp(multimac, recbuffer, ETH_ALEN))
+		if(recbuffer[0]&1)
 			multicast++;
 		else if(!memcmp(mymac, recbuffer, ETH_ALEN))
 			forme++;

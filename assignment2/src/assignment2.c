@@ -68,6 +68,7 @@ void assignment2(int fd, int frames)
 		 */
 
 		hexdump(recbuffer, ret);
+		hexdump(mymac);
 		ethtype=recbuffer[12]<<8|recbuffer[13];
 
 		for(i=0; i<ftsize; i++)
@@ -106,7 +107,7 @@ void assignment2(int fd, int frames)
 		printf("0x%.04x: %d frames, %d bytes\n", fts[i].frametype, fts[i].frames, fts[i].bytes);
 	printf("%d of them were for me\n", forme);
 	printf("%d of them were multicast\n", multicast);
-	printf("IPv4 accounted for %.1f and IPv6 for %.1f of the traffic\n", 100*ipv4/total, 100*ipv6/total);
+	printf("IPv4 accounted for %.1f%% and IPv6 for %.1f%% of the traffic\n", 100*ipv4/total, 100*ipv6/total);
 }
 
 int main(int argc, char ** argv)

@@ -78,6 +78,7 @@ void assignment2(int fd, int frames)
 				break;
 		}
 
+		i--;
 		hexdump(&ethtype, 2);
 		fprintf(stderr, "i: %d\n", i);
 

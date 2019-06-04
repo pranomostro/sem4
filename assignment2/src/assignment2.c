@@ -79,12 +79,12 @@ void assignment2(int fd, int frames)
 			ftsize++;
 			fts[i].frametype=ethtype;
 			fts[i].frames=1;
-			fts[i].bytes=ret-4; /* subtract 4 octets for checksum */
+			fts[i].bytes=ret;
 		}
 		else
 		{
 			fts[i].frames++;
-			fts[i].bytes+=ret-4; /* again, don't count checksum */
+			fts[i].bytes+=ret;
 		}
 
 		if(!memcmp(multimac, recbuffer, ETH_ALEN))

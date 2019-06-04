@@ -1,0 +1,25 @@
+Raw
+CSG
+Start symbol: S
+Productions:
+S -> H
+Ia -> aaI
+IR -> aaK
+Sa -> JaI
+SR -> JaK
+H -> JL
+K -> aL
+L -> M
+L -> N
+aQ -> Qa
+M -> O
+JQ -> Pa
+aO -> QR
+JO -> PR
+P -> S
+aT -> Ta
+N -> T
+JT -> Ua
+U -> a
+END
+8

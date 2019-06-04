@@ -1,0 +1,13 @@
+Full
+NFA
+Alphabet: a;b
+States: 1;2;3
+Init: 1
+Final: 1;3
+Transitions:
+1;a;2
+1;b;3
+2;a;3
+2;b;3
+END
+

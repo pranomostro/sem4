@@ -1,0 +1,29 @@
+Normal
+CSG
+Start symbol: A
+Productions:
+A -> 
+A -> X
+X -> XaY
+X -> aY
+X -> YaX
+X -> Ya
+Y -> XaXbX
+Y -> aXbX
+Y -> XabX
+Y -> XaXb
+Y -> abX
+Y -> aXb
+Y -> abX
+Y -> ab
+Y -> XbXaX
+Y -> bXaX
+Y -> XbaX
+Y -> XbXa
+Y -> baX
+Y -> bXa
+Y -> baX
+Y -> ba
+Y -> YY
+END
+7

@@ -99,7 +99,7 @@ void assignment2(int fd, int frames)
 			forme++;
 	}
 
-	qsort(fts, sizeof(Frametype), ftsize, ftcmp);
+	//qsort(fts, sizeof(Frametype), ftsize, ftcmp);
 
 	/* Print your summary here */
 	for(i=0; i<ftsize; i++)

@@ -79,9 +79,11 @@ void assignment2(int fd, int frames)
 		}
 
 		hexdump(&ethtype, 2);
+		fprintf(stderr, "i: %d\n", i);
 
 		if(i==ftsize||ftsize==0)
 		{
+			fprintf(stderr, "setting last element %d\n", i);
 			ftsize++;
 			fts[i].frametype=ethtype;
 			fts[i].frames=1;
@@ -89,6 +91,7 @@ void assignment2(int fd, int frames)
 		}
 		else
 		{
+			fprintf(stderr, "setting element %d\n", i);
 			fts[i].frames++;
 			fts[i].bytes+=ret-4; /* again, don't count checksum */
 		}

@@ -70,11 +70,11 @@ void assignment2(int fd, int frames)
 		 */
 
 		hexdump(recbuffer, ret);
+		ethtype=recbuffer[12]<<8|recbuffer[13];
 
 		for(i=0; i<ftsize; i++)
 		{
 			fprintf(stderr, "checking ethertype\n");
-			ethtype=recbuffer[12]<<8|recbuffer[13];
 			if(ethtype==fts[i].frametype)
 				break;
 		}

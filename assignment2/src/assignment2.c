@@ -71,7 +71,7 @@ void assignment2(int fd, int frames)
 
 		hexdump(recbuffer, ret);
 
-		for(i=0; i<ftsize; i++)
+		for(i=0; i<=ftsize; i++)
 		{
 			ethtype=recbuffer[12]<<8|recbuffer[13];
 			if(ethtype==fts[i].frametype)

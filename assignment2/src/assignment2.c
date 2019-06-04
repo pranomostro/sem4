@@ -80,7 +80,7 @@ void assignment2(int fd, int frames)
 
 		hexdump(&ethtype, 2);
 
-		if(i==ftsize)
+		if(i==ftsize||ftsize==0)
 		{
 			ftsize++;
 			fts[i].frametype=ethtype;

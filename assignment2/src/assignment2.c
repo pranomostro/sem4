@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+#include <stdlib.h>
 
 #include "arguments.h"
 #include "raw.h"
@@ -19,6 +20,17 @@ typedef struct Frametype {
 } Frametype;
 
 /* Put your ancillary functions here*/
+
+int ftcmp(const void* a1, const void* a2)
+{
+	Frametype* f1=(Frametype *)a1;
+	Frametype* f2=(Frametype *)a2;
+	if(f1->frametype==f2->frametype)
+		return 0;
+	if(f1->frametype>f2->frametype)
+		return 1;
+	return -1;
+}
 
 /*===========================================================================*/
 
@@ -86,6 +98,8 @@ void assignment2(int fd, int frames)
 		else if(!memcmp(mymac, recbuffer, ETH_ALEN))
 			forme++;
 	}
+
+	qsort(fts, sizeof(Frametype), ftsize, ftcmp);
 
 	/* Print your summary here */
 	for(i=0; i<ftsize; i++)

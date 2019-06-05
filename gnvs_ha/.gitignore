@@ -1,2 +1,3 @@
-build
+*.o
 ethstats
+moep

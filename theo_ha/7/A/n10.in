@@ -1,0 +1,11 @@
+Grammar
+Nonterminals: S,O,A,X
+Alphabet: a,b,c
+Startsymbol: S
+Productions:
+S -> O | A
+O -> O X X | X
+X -> a | b
+A -> a b c A | a b c
+END
+

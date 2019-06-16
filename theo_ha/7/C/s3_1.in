@@ -1,0 +1,21 @@
+Grammar
+Nonterminals: A,B,C,D,E,F,G,S,Y_a,Y_b,Y_c,Y_e,Y_f,Y_i
+Alphabet: a,b,c,d,e,f,g,h,i
+Startsymbol: G
+Productions:
+A -> Y_b B
+B -> Y_a G
+B -> Y_b A
+F -> Y_f G
+G -> Y_c D
+G -> Y_e A
+G -> Y_f F
+G -> Y_i A
+Y_a -> a
+Y_b -> b
+Y_c -> c
+Y_e -> e
+Y_f -> f
+Y_i -> i
+END
+bcdfh

@@ -1,0 +1,37 @@
+Grammar
+Nonterminals: S,[p1;A;p1],[p1;A;p2],[p1;A;p3],[p1;A;q],[p1;X;p1],[p1;X;p2],[p1;X;p3],[p1;X;q],[p2;A;p1],[p2;A;p2],[p2;A;p3],[p2;A;q],[p2;X;p1],[p2;X;p2],[p2;X;p3],[p2;X;q],[p3;A;p1],[p3;A;p2],[p3;A;p3],[p3;A;q],[p3;X;p1],[p3;X;p2],[p3;X;p3],[p3;X;q],[q;A;p1],[q;A;p2],[q;A;p3],[q;A;q],[q;X;p1],[q;X;p2],[q;X;p3],[q;X;q]
+Alphabet: a,b
+Startsymbol: S
+Productions:
+S -> [q;X;p1]
+S -> [q;X;p2]
+S -> [q;X;p3]
+S -> [q;X;q]
+[p1;A;p2] -> 
+[p2;A;p3] -> 
+[p3;A;p1] -> b
+[q;A;p1] -> [p1;A;p1]
+[q;A;p1] -> a [q;A;p1] [p1;A;p1]
+[q;A;p1] -> a [q;A;p2] [p2;A;p1]
+[q;A;p1] -> a [q;A;p3] [p3;A;p1]
+[q;A;p1] -> a [q;A;q] [q;A;p1]
+[q;A;p2] -> [p1;A;p2]
+[q;A;p2] -> a [q;A;p1] [p1;A;p2]
+[q;A;p2] -> a [q;A;p2] [p2;A;p2]
+[q;A;p2] -> a [q;A;p3] [p3;A;p2]
+[q;A;p2] -> a [q;A;q] [q;A;p2]
+[q;A;p3] -> [p1;A;p3]
+[q;A;p3] -> a [q;A;p1] [p1;A;p3]
+[q;A;p3] -> a [q;A;p2] [p2;A;p3]
+[q;A;p3] -> a [q;A;p3] [p3;A;p3]
+[q;A;p3] -> a [q;A;q] [q;A;p3]
+[q;A;q] -> [p1;A;q]
+[q;A;q] -> a [q;A;p1] [p1;A;q]
+[q;A;q] -> a [q;A;p2] [p2;A;q]
+[q;A;q] -> a [q;A;p3] [p3;A;q]
+[q;A;q] -> a [q;A;q] [q;A;q]
+[q;X;p1] -> a [q;A;p1]
+[q;X;p2] -> a [q;A;p2]
+[q;X;p3] -> a [q;A;p3]
+[q;X;q] -> a [q;A;q]
+END

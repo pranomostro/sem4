@@ -1,0 +1,11 @@
+Grammar
+Nonterminals: S,A,B,C,D,E,F,G
+Alphabet: a,b,c,d,e,f,g,h,i
+Startsymbol: G
+Productions:
+G -> i A | c D | f F | e A
+F -> f G
+A -> b B
+B -> b A | a G
+END
+

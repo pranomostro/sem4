@@ -1,0 +1,22 @@
+Grammar
+Nonterminals: S,[p;A;p],[p;A;q],[p;X;p],[p;X;q],[q;A;p],[q;A;q],[q;X;p],[q;X;q]
+Alphabet: a,b
+Startsymbol: S
+Productions:
+S -> [q;X;p]
+S -> [q;X;q]
+[p;A;p] -> b [q;A;p] [p;A;p] [p;A;p]
+[p;A;p] -> b [q;A;p] [p;A;q] [q;A;p]
+[p;A;p] -> b [q;A;q] [q;A;p] [p;A;p]
+[p;A;p] -> b [q;A;q] [q;A;q] [q;A;p]
+[p;A;q] -> b [q;A;p] [p;A;p] [p;A;q]
+[p;A;q] -> b [q;A;p] [p;A;q] [q;A;q]
+[p;A;q] -> b [q;A;q] [q;A;p] [p;A;q]
+[p;A;q] -> b [q;A;q] [q;A;q] [q;A;q]
+[q;A;p] -> a [q;A;p] [p;A;p]
+[q;A;p] -> a [q;A;q] [q;A;p]
+[q;A;q] -> a [q;A;p] [p;A;q]
+[q;A;q] -> a [q;A;q] [q;A;q]
+[q;X;p] -> a [q;A;p]
+[q;X;q] -> a [q;A;q]
+END

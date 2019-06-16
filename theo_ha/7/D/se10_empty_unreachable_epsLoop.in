@@ -1,0 +1,18 @@
+PDA
+Alphabet: a;b;c;d
+States: q;p;r;s;t;u;v
+Init: q
+Stackalphabet: A
+Startsymbol: A
+Transitions:
+q;;A;p;A
+p;;A;r;A
+r;;A;s;A
+s;;A;s;AA
+s;;A;q;A
+s;;A;t;A
+t;a;A;q;A
+u;a;A;v;
+v;a;A;u;
+u;;A;u;
+END

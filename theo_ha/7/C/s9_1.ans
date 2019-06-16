@@ -1,0 +1,36 @@
+S
+├Y_a
+│└a
+└X_[S;Y_b]
+ ├S
+ │├Y_a
+ ││└a
+ │└X_[S;Y_b]
+ │ └b
+ └Y_b
+  └b
+
+T
+├Y_a
+│└a
+└T
+ ├Y_a
+ │└a
+ └T
+  ├Y_b
+  │└b
+  └Y_b
+   └b
+
+X_[S;Y_b]
+├S
+│├Y_a
+││└a
+│└X_[S;Y_b]
+│ ├S
+│ │└a
+│ └Y_b
+│  └b
+└Y_b
+ └b
+

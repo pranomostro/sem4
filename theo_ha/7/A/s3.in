@@ -1,0 +1,11 @@
+Grammar
+Nonterminals: S,A,B,E
+Alphabet: a,b,s
+Startsymbol: S
+Productions:
+S -> s E | s S | s A
+A -> a E | a A | a B
+B -> b A | b S
+E -> 
+END
+

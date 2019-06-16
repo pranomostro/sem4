@@ -1,0 +1,16 @@
+Grammar
+Nonterminals: S,T,X_[S;Y_b],Y_a,Y_b
+Alphabet: a,b
+Startsymbol: S
+Productions:
+S -> Y_a X_[S;Y_b]
+S -> a
+T -> Y_a T
+T -> Y_b Y_b
+T -> a
+X_[S;Y_b] -> S Y_b
+X_[S;Y_b] -> b
+Y_a -> a
+Y_b -> b
+END
+bbaa

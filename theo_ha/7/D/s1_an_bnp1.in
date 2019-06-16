@@ -1,0 +1,11 @@
+PDA
+Alphabet: a;b
+States: q;p
+Init: q
+Stackalphabet: a;b
+Startsymbol: a
+Transitions:
+q;a;a;q;aa
+q;b;a;p;
+p;b;a;p;
+END

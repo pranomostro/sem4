@@ -1,0 +1,8 @@
+Grammar
+Nonterminals: A
+Alphabet: a,b,c
+Startsymbol: A
+Productions:
+A -> a|b|c
+END
+a

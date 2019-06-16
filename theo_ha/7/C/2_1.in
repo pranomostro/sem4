@@ -1,0 +1,14 @@
+Grammar
+Nonterminals: S,A,B,E,Y_a,Y_b,Y_s
+Alphabet: a,b,s
+Startsymbol: S
+Productions:
+S -> Y_s E|Y_s S|Y_s A
+A -> Y_a E|Y_a A|Y_a B
+B -> Y_b A|Y_b S
+E -> b
+Y_a -> a
+Y_b -> b
+Y_s -> s
+END
+sab

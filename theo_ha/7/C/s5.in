@@ -1,0 +1,7 @@
+Grammar
+Nonterminals: S
+Alphabet: a
+Startsymbol: S
+Productions:
+END
+a

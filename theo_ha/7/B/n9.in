@@ -1,0 +1,12 @@
+Grammar
+Nonterminals: S,T,X,Y,Z
+Alphabet: a,b
+Startsymbol: S
+Productions:
+S -> T
+T -> X
+X -> Y
+Y -> Z
+Z -> a S |
+END
+

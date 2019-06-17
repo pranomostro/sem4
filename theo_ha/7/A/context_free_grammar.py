@@ -147,8 +147,6 @@ class Context_Free_Grammar:
 			",".join(sorted(self.alphabet)), self.start_symbol,
 			"\n" + "\n".join(sorted(map(str, self.productions))) if len(self.productions) > 0 else "")
 
-	# TODO: Fill in this part of the code.
-	# Should return the set of reachable non-terminals.
 	def get_reachable_non_terminals(self):
 		non_term={}
 		tmp={self.start_symbol}

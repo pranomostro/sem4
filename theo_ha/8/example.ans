@@ -1,0 +1,12 @@
+X
+even
+HALT
+del;X;←; ;L
+even; ;←; ;L
+even;X;odd;X;R
+odd; ;del; ;L
+odd;X;even;X;R
+←; ;HALT; ;R
+←;X;←;X;L
+END
+

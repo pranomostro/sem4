@@ -1,0 +1,68 @@
+name: binary increment
+source code: |+
+  blank: ' '
+  input: '(([])[])'
+  start state: q0
+  final states: [qf]
+
+  table:
+          q0:
+                  ['(', ')', '[', ']']: R
+                  ' ': {write: '#', L: q1}
+          q1:
+                  ']': {write: A, R: q2}
+                  ')': {write: B, R: q4}
+                  '[': {write: C, R: q6}
+                  '(': {write: D, R: q9}
+                  ' ': {R: q12}
+          q2:
+                  ['(', ')', '[', ']', '#', A, B, C, D]: R
+                  ' ': {write: A, L: q3}
+          q3:
+                  ['#', A, B, C, D]: L
+                  ['(', ')', '[', ']']: {N: q1}
+          q4:
+                  ['(', ')', '[', ']', '#', A, B, C, D]: R
+                  ' ': {write: B, L: q5}
+          q5:
+                  ['#', A, B, C, D]: L
+                  ['(' , ')', '[', ']']: {N: q1}
+          q6:
+                  ['(', ')', '[', ']', '#', A, B, C, D]: R
+                  ' ': {L: q7}
+          q7:
+                  A: {write: ' ', L: q8}
+          q8:
+                  ['#', A, B, C, D]: L
+                  ['(', ')', '[', ']', ' ']: {N: q1}
+          q9:
+                  ['(', ')', '[', ']', '#', A, B, C, D]: R
+                  ' ': {L: q10}
+          q10:
+                  B: {write: ' ', L: q11}
+          q11:
+                  ['#', A, B, C, D]: L
+                  ['(', ')', '[', ']', ' ']: {N: q1}
+          q12:
+                  [A, B, C, D]: R
+                  '#': {R: q13}
+          q13:
+                  ' ': {N: qf}
+          qf:
+
+positions:
+  q0: {x: 322.5, y: 336.23}
+  q1: {x: 524.03, y: 265.28, fixed: false}
+  q2: {x: 605.53, y: 407}
+  q3: {x: 668.04, y: 286.84, fixed: false}
+  q4: {x: 720.85, y: 189.74}
+  q5: {x: 592.99, y: 132.35, fixed: false}
+  q6: {x: 484.57, y: 415.06, fixed: false}
+  q7: {x: 347.76, y: 480, fixed: false}
+  q8: {x: 413.45, y: 360.29, fixed: false}
+  q9: {x: 419.13, y: 155.67, fixed: false}
+  q10: {x: 378.86, y: 20, fixed: false}
+  q11: {x: 494.72, y: 112.89, fixed: false}
+  q12: {x: 371.6, y: 232.35, fixed: false}
+  q13: {x: 230.1, y: 178.85, fixed: false}
+  qf: {x: 95.99, y: 228.07, fixed: false}

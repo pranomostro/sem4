@@ -1,0 +1,61 @@
+name: binary increment
+source code: |+
+  blank: ' '
+  input: '101'
+  start state: q0
+  final states: [q8]
+
+  table:
+          q0:
+                  [1, 0]: R
+                  ' ': {L: q1}
+          q1:
+                  Z: {write: Z, L}
+                  N: {write: N, L}
+                  0: {write: Z, R: q2}
+                  1: {write: N, R: q3}
+                  ' ': {write: ' ', R: q6}
+          q2:
+                  Z: {write: Z, R}
+                  N: {write: N, R}
+                  1: {write: 1, R}
+                  0: {write: 0, R}
+                  ' ': {write: 0, L: q4}
+          q4:
+                  1: {write: 1, L}
+                  0: {write: 0, L}
+                  Z: {write: Z, N: q1}
+                  N: {write: N, N: q1}
+          q3:
+                  Z: {write: Z, R}
+                  N: {write: N, R}
+                  1: {write: 1, R}
+                  0: {write: 0, R}
+                  ' ': {write: 1, L: q5}
+          q5:
+                  1: {write: 1, L}
+                  0: {write: 0, L}
+                  Z: {write: Z, N: q1}
+                  N: {write: N, N: q1}
+          q6:
+                  Z: {write: 0, R}
+                  N: {write: 1, R}
+                  1: {write: 1, L: q7}
+                  0: {write: 0, L: q7}
+                  ' ': {write: ' ', N: q8}
+          q7:
+                  1: {write: 1, L}
+                  0: {write: 0, L}
+                  ' ': {write: ' ', R: q8}
+          q8:
+
+positions:
+  q0: {x: 346.97, y: 262.81}
+  q1: {x: 492.45, y: 287.48, fixed: false}
+  q2: {x: 605.53, y: 407}
+  q4: {x: 631.35, y: 264.5, fixed: false}
+  q3: {x: 537.42, y: 144.76, fixed: false}
+  q5: {x: 402.95, y: 162.6, fixed: false}
+  q6: {x: 375.81, y: 376.08, fixed: false}
+  q7: {x: 245.7, y: 435.29, fixed: false}
+  q8: {x: 248.93, y: 295.45, fixed: false}

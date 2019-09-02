@@ -80,4 +80,50 @@ als 3 sein. Damit kommen nur die Zahlen 1, 2, 3, 10, 11, 12, 20, 21,
 
 $\frac{16}{150} \approx 10.67\% $
 
+\subsection*{H2}
+
+$$\Pr[E_n]=\begin{cases}\frac{2}{3}*\frac{1}{2^n} & \hbox{falls n gerade}\cr
+		  \frac{1}{3}*\frac{1}{2^n} & \hbox{falls n ungerade}\end{cases}$$
+
+Begründung: $\frac{2}{3}*\frac{1}{2^n}=2*\frac{1}{3}*\frac{1}{2^n}$,
+und $\frac{1}{3}*\frac{1}{2^n}+\frac{2}{3}*\frac{1}{2^n}=\frac{1}{2^n}$.
+
+Da alle Ereignisse disjunkt sind, kann man einfach addieren und sieht:
+
+$$ \Pr[\bigcup_{n \in \mathbb{N}} E_n] = \sum_{n \in \mathbb{N}} \frac{1}{2^n}=1 $$
+
+\subsection*{H3}
+
+$$ \Pr[\hbox{keiner bekommt seine eigene Abgabe}]= $$
+$$ 1-\Pr[\hbox{irgendeiner bekommt seine eigene Abgabe}]= $$
+$$ 1-\bigcup_{n \in S} \Pr[\hbox{n kriegt seine eigene Abgabe}]= $$
+$$ 1-(\sum_{i=1}^n \frac{1}{n}-\sum_{1 \le i_1 \le i_2 \le n} \frac{1}{n} * \frac{1}{n-1} + \sum \dots)= $$
+$$ 1-(n*\frac{1}{n}-\hbox{n over 2}*\frac{(n-2)!}{n!}+\hbox{n over 3}*\frac{(n-3)!}{n!} \dots)= $$
+$$ 1-(\sum_{k=1}^{n} (-1)^k \frac{(n-k)!}{n!} \hbox{n over k})= $$
+$$ 1-(\sum_{k=1}^{n} (-1)^k \frac{(n-k)!}{n!} * \frac{n!}{(n-k)!*k!})= $$
+$$ 1-(\sum_{k=1}^{n} (-1)^k \frac{1}{k!})= $$
+$$ 1-\sum_{k=1}^{n} \frac{(-1)^k}{k!} $$
+
+Für $n \rightarrow \infty$ gilt $\lim_{n \rightarrow \infty}
+1-\sum_{k=1}^{n} \frac{(-1)^k}{k!}=1-e^{-1}=1-\frac{1}{e} $.
+
+Die Wahrscheinlichkeit, dass keiner der unendlich vielen Studierenden
+sein eigenes Blatt zurückbekommt, ist also $1-\frac{1}{e}\approx0.632$.
+
+\subsection*{H4}
+
+\subsubsection*{(a)}
+
+Annahme: Wenn hier "in die $n$-te U-Bahn" geschrieben wird, ist damit
+gemeint, dass sie in alle vorher nicht einsteigen konnte, man berechnet
+also die Wahrscheinlichkeit, dass sie "genau in die $n$-te U-Bahn"
+einsteigt.
+
+$ \Pr[\hbox{Agathe kann in die $n$-te U-Bahn einsteigen}]=\frac{1}{n*(n+1)} $
+
+\subsubsection*{(b)}
+
+$ \Pr[\hbox{Agathe steigt spätestens in die $n$-te U-Bahn ein}]=$\\*
+$ 1-\Pr[\hbox{Agathe steigt in die $n+1$-ste U-bahn ein}]=1-\frac{1}{n+1} $
+
 \end{document}

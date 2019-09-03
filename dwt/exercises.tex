@@ -119,11 +119,57 @@ gemeint, dass sie in alle vorher nicht einsteigen konnte, man berechnet
 also die Wahrscheinlichkeit, dass sie "genau in die $n$-te U-Bahn"
 einsteigt.
 
+%TODO: Diese sind nicht wirklich schön gemacht oder durchdacht.
+
 $ \Pr[\hbox{Agathe kann in die $n$-te U-Bahn einsteigen}]=\frac{1}{n*(n+1)} $
 
 \subsubsection*{(b)}
 
 $ \Pr[\hbox{Agathe steigt spätestens in die $n$-te U-Bahn ein}]=$\\*
 $ 1-\Pr[\hbox{Agathe steigt in die $n+1$-ste U-bahn ein}]=1-\frac{1}{n+1} $
+
+\section*{Blatt 2}
+
+\subsection*{T1}
+
+\subsubsection*{(a)}
+
+Da $\hbox{6 over 2}=15$, gibt es 15 Möglichkeiten, die erste Gruppe
+zu bilden. Daraufhin kann man aus den übrigen 4 Personen noch $\hbox{4
+over 2}=6$ Gruppen bilden, und dann bleiben noch 2 Leute übrig, die die
+letzte Gruppe bilden. Da aber hier die Gruppen durchnummeriert wurden,
+das in der gegebenen Aufgabe aber nicht der Fall ist, wird durch $3!$,
+als die Anzahl der möglichen Anordnung der Gruppen, geteilt.  Die Anzahl
+der Möglichkeiten, 6 Personen in Zweiergruppen einzuteilen, ist also
+$\frac{\hbox{6 over 2}*\hbox{4 over 2}}{3!}=\frac{15*6}{6}=15$.
+
+\subsubsection*{(b)}
+
+Für die erste Studentin gibt es 3 Möglichkeiten, einem Studenten
+zugeordnet zu werden. Für die zweite gibt es dann noch 2 Studenten,
+denen sie zugeordnet werden kann, und für die dritte ist es dann fix.
+
+Damit gibt es $3*2=6$ Möglichkeiten, die Lerngruppen gemischt zu machen,
+und die Wahrscheinlichkeit, dass eine Lerngruppe gemischt ist, ist
+$\frac{6}{15}=0.4$.
+
+\subsubsection*{(c)}
+
+$$\Pr[\hbox{alle gemischt}|\hbox{A\&D}]=$$
+$$1-\Pr[\hbox{keine gemischt}|\hbox{A\&D}]=$$
+$$1-\frac{1}{\frac{\hbox{4 over 2}*\hbox{2 over 2}}{2!}}=$$
+$$1-\frac{1}{3}\approx$$
+$$0.667$$
+
+\subsubsection*{(d)}
+
+$$\Pr[(A\&D \cup B\&C) \cap \hbox{alle gemischt}]=$$
+$$\Pr[A\&D \cap \hbox{alle gemischt}]=$$
+$$\Pr[A\&D]*\Pr[\hbox{alle gemischt}|A\&D]=$$
+$$\frac{\frac{\hbox{4 over 2}}{2!}}{15}*\frac{2}{3}=\frac{12}{45}=$$
+$$\frac{6}{15}*\frac{2}{3}=$$
+$$\Pr[A\&D \cup B\&C]*\Pr[\hbox{alle gemischt}]$$
+
+\subsection*{T2}
 
 \end{document}

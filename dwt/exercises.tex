@@ -45,8 +45,8 @@ für jede Blaubeere ein Muffin gewählt wird, der nicht der $i$-te ist.
 $ \Pr[\hbox{Alle echt}] $ \\*
 $ = 1-\Pr[\hbox{Mindestens einer nicht echt}] $ \\*
 $ = 1-\Pr[\bigcup_{i=0}^{m} \hbox{i nicht echt}] $ \\*
-$ = 1-(m*(\frac{m-1}{m})^n-\hbox{m over 2}*(\frac{m-2}{m})^n+\hbox{m over 3}*(\frac{m-3}{m})^n-\dots $ \\*
-$ = 1-(\sum_{i=1}^{m}(-1)^{i+1}*\hbox{m over i}*(\frac{m-i}{m}))^n) $
+$ = 1-(m*(\frac{m-1}{m})^n-{m \choose 2}*(\frac{m-2}{m})^n+{m \choose3}*(\frac{m-3}{m})^n-\dots $ \\*
+$ = 1-(\sum_{i=1}^{m}(-1)^{i+1}*{m \choose i}*(\frac{m-i}{m}))^n) $
 
 \subsubsection*{(c)}
 
@@ -98,8 +98,8 @@ $$ \Pr[\hbox{keiner bekommt seine eigene Abgabe}]= $$
 $$ 1-\Pr[\hbox{irgendeiner bekommt seine eigene Abgabe}]= $$
 $$ 1-\bigcup_{n \in S} \Pr[\hbox{n kriegt seine eigene Abgabe}]= $$
 $$ 1-(\sum_{i=1}^n \frac{1}{n}-\sum_{1 \le i_1 \le i_2 \le n} \frac{1}{n} * \frac{1}{n-1} + \sum \dots)= $$
-$$ 1-(n*\frac{1}{n}-\hbox{n over 2}*\frac{(n-2)!}{n!}+\hbox{n over 3}*\frac{(n-3)!}{n!} \dots)= $$
-$$ 1-(\sum_{k=1}^{n} (-1)^k \frac{(n-k)!}{n!} \hbox{n over k})= $$
+$$ 1-(n*\frac{1}{n}-{n \choose 2}*\frac{(n-2)!}{n!}+{n \choose 3}*\frac{(n-3)!}{n!} \dots)= $$
+$$ 1-(\sum_{k=1}^{n} (-1)^k \frac{(n-k)!}{n!} {n \choose k})= $$
 $$ 1-(\sum_{k=1}^{n} (-1)^k \frac{(n-k)!}{n!} * \frac{n!}{(n-k)!*k!})= $$
 $$ 1-(\sum_{k=1}^{n} (-1)^k \frac{1}{k!})= $$
 $$ 1-\sum_{k=1}^{n} \frac{(-1)^k}{k!} $$
@@ -134,14 +134,14 @@ $ 1-\Pr[\hbox{Agathe steigt in die $n+1$-ste U-bahn ein}]=1-\frac{1}{n+1} $
 
 \subsubsection*{(a)}
 
-Da $\hbox{6 over 2}=15$, gibt es 15 Möglichkeiten, die erste Gruppe
-zu bilden. Daraufhin kann man aus den übrigen 4 Personen noch $\hbox{4
-over 2}=6$ Gruppen bilden, und dann bleiben noch 2 Leute übrig, die die
+Da ${6 \choose 2}=15$, gibt es 15 Möglichkeiten, die erste Gruppe
+zu bilden. Daraufhin kann man aus den übrigen 4 Personen noch ${4 \choose 2}=6$
+Gruppen bilden, und dann bleiben noch 2 Leute übrig, die die
 letzte Gruppe bilden. Da aber hier die Gruppen durchnummeriert wurden,
 das in der gegebenen Aufgabe aber nicht der Fall ist, wird durch $3!$,
 als die Anzahl der möglichen Anordnung der Gruppen, geteilt.  Die Anzahl
 der Möglichkeiten, 6 Personen in Zweiergruppen einzuteilen, ist also
-$\frac{\hbox{6 over 2}*\hbox{4 over 2}}{3!}=\frac{15*6}{6}=15$.
+$\frac{{6 \choose 2}*{4 \choose 2}}{3!}=\frac{15*6}{6}=15$.
 
 \subsubsection*{(b)}
 
@@ -157,7 +157,7 @@ $\frac{6}{15}=0.4$.
 
 $$\Pr[\hbox{alle gemischt}|\hbox{A\&D}]=$$
 $$1-\Pr[\hbox{keine gemischt}|\hbox{A\&D}]=$$
-$$1-\frac{1}{\frac{\hbox{4 over 2}*\hbox{2 over 2}}{2!}}=$$
+$$1-\frac{1}{\frac{{4 \choose 2}*{2 \choose 2}}{2!}}=$$
 $$1-\frac{1}{3}\approx$$
 $$0.667$$
 
@@ -166,7 +166,7 @@ $$0.667$$
 $$\Pr[(A\&D \cup B\&C) \cap \hbox{alle gemischt}]=$$
 $$\Pr[A\&D \cap \hbox{alle gemischt}]=$$
 $$\Pr[A\&D]*\Pr[\hbox{alle gemischt}|A\&D]=$$
-$$\frac{\frac{\hbox{4 over 2}}{2!}}{15}*\frac{2}{3}=\frac{12}{45}=$$
+$$\frac{\frac{{4 \choose 2}}{2!}}{15}*\frac{2}{3}=\frac{12}{45}=$$
 $$\frac{6}{15}*\frac{2}{3}=$$
 $$\Pr[A\&D \cup B\&C]*\Pr[\hbox{alle gemischt}]$$
 
